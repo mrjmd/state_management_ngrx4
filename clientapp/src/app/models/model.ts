@@ -9,16 +9,9 @@ import {of} from "rxjs/observable/of";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/withLatestFrom';
 
-// state
-export type Recipe = {
-  id: number,
-  title: string,
-  difficulty: string,
-  speaker: string,
-  description: string,
-  yourRating: number,
-  rating: number
-};
+import {Recipe} from './recipe.model';
+
+export type Recipe = Recipe;
 export type Filters = { speaker: string, title: string, minRating: number };
 export type AppState = { recipes: { [id: number]: Recipe }, list: number[], filters: Filters, watched: { [id: number]: boolean } };
 export type State = { app: AppState }; // this will also contain router state

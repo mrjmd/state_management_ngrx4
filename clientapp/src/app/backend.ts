@@ -1,7 +1,8 @@
 import {Http, URLSearchParams} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {Injectable} from "@angular/core";
-import {Filters, Recipe} from "./model";
+import {Recipe} from "./models/recipe.model";
+import {Filters} from "./models/model";
 
 @Injectable()
 export class Backend {
