@@ -10,28 +10,36 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/withLatestFrom';
 
 // state
-export type Talk = { id: number, title: string, speaker: string, description: string, yourRating: number, rating: number };
+export type Recipe = {
+  id: number,
+  title: string,
+  difficulty: string,
+  speaker: string,
+  description: string,
+  yourRating: number,
+  rating: number
+};
 export type Filters = { speaker: string, title: string, minRating: number };
-export type AppState = { talks: { [id: number]: Talk }, list: number[], filters: Filters, watched: { [id: number]: boolean } };
+export type AppState = { recipes: { [id: number]: Recipe }, list: number[], filters: Filters, watched: { [id: number]: boolean } };
 export type State = { app: AppState }; // this will also contain router state
 
 export const initialState: State = {
   app: {
     filters: {speaker: "", title: "", minRating: 0},
-    talks: {},
+    recipes: {},
     list: [],
     watched: {}
   }
 };
 
 // actions
-export type TalksUpdated = { type: 'TALKS_UPDATED', payload: { talks: { [id: number]: Talk }, list: number[] }, filters: Filters };
-export type TalkUpdated = { type: 'TALK_UPDATED', payload: Talk };
-export type Watch = { type: 'WATCH', payload: { talkId: number } };
-export type TalkWatched = { type: 'TALK_WATCHED', payload: { talkId: number } };
-export type Rate = { type: 'RATE', payload: { talkId: number, rating: number } };
-export type Unrate = { type: 'UNRATE', payload: { talkId: number, error: any } };
-type Action = RouterAction<State> | TalksUpdated | TalkUpdated | Watch | TalkWatched | Rate | Unrate;
+export type RecipesUpdated = { type: 'TALKS_UPDATED', payload: { recipes: { [id: number]: Recipe }, list: number[] }, filters: Filters };
+export type RecipeUpdated = { type: 'TALK_UPDATED', payload: Recipe };
+export type Watch = { type: 'WATCH', payload: { recipeId: number } };
+export type RecipeWatched = { type: 'TALK_WATCHED', payload: { recipeId: number } };
+export type Rate = { type: 'RATE', payload: { recipeId: number, rating: number } };
+export type Unrate = { type: 'UNRATE', payload: { recipeId: number, error: any } };
+type Action = RouterAction<State> | RecipesUpdated | RecipeUpdated | Watch | RecipeWatched | Rate | Unrate;
 
 // reducer
 export function appReducer(state: AppState, action: Action): AppState {
@@ -40,23 +48,23 @@ export function appReducer(state: AppState, action: Action): AppState {
       return {...state, ...action.payload};
     }
     case  'TALK_UPDATED': {
-      const talks = {...state.talks};
-      talks[action.payload.id] = action.payload;
-      return {...state, talks};
+      const recipes = {...state.recipes};
+      recipes[action.payload.id] = action.payload;
+      return {...state, recipes};
     }
     case 'RATE': {
-      const talks = {...state.talks};
-      talks[action.payload.talkId].rating = action.payload.rating;
-      return {...state, talks};
+      const recipes = {...state.recipes};
+      recipes[action.payload.recipeId].rating = action.payload.rating;
+      return {...state, recipes};
     }
     case 'UNRATE': {
-      const talks = {...state.talks};
-      talks[action.payload.talkId].rating = null;
-      return {...state, talks};
+      const recipes = {...state.recipes};
+      recipes[action.payload.recipeId].rating = null;
+      return {...state, recipes};
     }
     case 'TALK_WATCHED': {
       const watched = {...state.watched};
-      watched[action.payload.talkId] = true;
+      watched[action.payload.recipeId] = true;
       return {...state, watched};
     }
     default: {
@@ -66,32 +74,32 @@ export function appReducer(state: AppState, action: Action): AppState {
 }
 
 @Injectable()
-export class TalksEffects {
-  @Effect() navigateToTalks = this.handleNavigation('talks', (r: ActivatedRouteSnapshot) => {
+export class RecipesEffects {
+  @Effect() navigateToRecipes = this.handleNavigation('recipes', (r: ActivatedRouteSnapshot) => {
     const filters = createFilters(r.params);
-    return this.backend.findTalks(filters).map(resp => ({type: 'TALKS_UPDATED', payload: {...resp, filters}}));
+    return this.backend.findRecipes(filters).map(resp => ({type: 'TALKS_UPDATED', payload: {...resp, filters}}));
   });
 
-  @Effect() navigateToTalk = this.handleNavigation('talk/:id', (r: ActivatedRouteSnapshot, state: State) => {
+  @Effect() navigateToRecipe = this.handleNavigation('recipe/:id', (r: ActivatedRouteSnapshot, state: State) => {
     const id = +r.paramMap.get('id');
-    if (! state.app.talks[id]) {
-      return this.backend.findTalk(+r.paramMap.get('id')).map(resp => ({type: 'TALK_UPDATED', payload: resp}));
+    if (! state.app.recipes[id]) {
+      return this.backend.findRecipe(+r.paramMap.get('id')).map(resp => ({type: 'TALK_UPDATED', payload: resp}));
     } else {
       return of();
     }
   });
 
-  @Effect() rateTalk = this.actions.ofType('RATE').
+  @Effect() rateRecipe = this.actions.ofType('RATE').
     switchMap((a: Rate) => {
-      return this.backend.rateTalk(a.payload.talkId, a.payload.rating).switchMap(() => of()).catch(e => {
+      return this.backend.rateRecipe(a.payload.recipeId, a.payload.rating).switchMap(() => of()).catch(e => {
         console.log('Error', e);
-        return of({type: 'UNRATE', payload: {talkId: a.payload.talkId}});
+        return of({type: 'UNRATE', payload: {recipeId: a.payload.recipeId}});
       });
     });
 
-  @Effect() watchTalk = this.actions.ofType('WATCH').
+  @Effect() watchRecipe = this.actions.ofType('WATCH').
     map((a: Watch) => {
-      this.watch.watch(a.payload.talkId);
+      this.watch.watch(a.payload.recipeId);
       return {type: 'TALK_WATCHED', payload: a.payload};
     });
 

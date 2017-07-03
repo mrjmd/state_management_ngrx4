@@ -1,25 +1,25 @@
 import {Component, Inject} from "@angular/core";
 import { Router, Params } from "@angular/router";
-import { Filters, State, Talk } from "../model";
+import { Filters, State, Recipe } from "../model";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
 
 @Component({
   selector: 'app-cmp',
-  templateUrl: './talks-and-filters.component.html',
-  styleUrls: ['./talks-and-filters.component.css']
+  templateUrl: './recipes-and-filters.component.html',
+  styleUrls: ['./recipes-and-filters.component.css']
 })
-export class TalksAndFiltersComponent {
+export class RecipesAndFiltersComponent {
   filters: Observable<Filters>;
-  talks: Observable<Talk[]>;
+  recipes: Observable<Recipe[]>;
 
   constructor(private router: Router, store: Store<State>) {
     this.filters = store.select('app', 'filters');
-    this.talks = store.select('app').map(s => s.list.map(n => s.talks[n]));
+    this.recipes = store.select('app').map(s => s.list.map(n => s.recipes[n]));
   }
 
   handleFiltersChange(filters: Filters): void {
-    this.router.navigate(["/talks", this.createParams(filters)]);
+    this.router.navigate(["/recipes", this.createParams(filters)]);
   }
 
   private createParams(filters: Filters): Params {

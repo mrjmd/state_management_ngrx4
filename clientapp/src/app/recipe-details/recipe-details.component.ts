@@ -3,22 +3,22 @@ import {Backend} from "../backend";
 import {ActivatedRoute} from "@angular/router";
 import 'rxjs/add/operator/mergeMap';
 import {WatchService} from "../watch";
-import { Talk, State } from "../model";
+import { Recipe, State } from "../model";
 import { Store } from "@ngrx/store";
 
 @Component({
-  selector: 'talk-details-cmp',
-  templateUrl: './talk-details.component.html',
-  styleUrls: ['./talk-details.component.css']
+  selector: 'recipe-details-cmp',
+  templateUrl: './recipe-details.component.html',
+  styleUrls: ['./recipe-details.component.css']
 })
-export class TalkDetailsComponent {
-  talk: Talk;
+export class RecipeDetailsComponent {
+  recipe: Recipe;
   isWatched: boolean;
 
   constructor(private route: ActivatedRoute, private store: Store<State>) {
     store.select('app').subscribe(t => {
       const id = (+route.snapshot.paramMap.get('id'));
-      this.talk = t.talks[id];
+      this.recipe = t.recipes[id];
       this.isWatched = t.watched[id];
     });
   }
@@ -27,7 +27,7 @@ export class TalkDetailsComponent {
     this.store.dispatch({
       type: 'RATE',
       payload: {
-        talkId: this.talk.id,
+        recipeId: this.recipe.id,
         rating: newRating
       }
     });
@@ -37,7 +37,7 @@ export class TalkDetailsComponent {
     this.store.dispatch({
       type: 'WATCH',
       payload: {
-        talkId: this.talk.id,
+        recipeId: this.recipe.id,
       }
     });
   }

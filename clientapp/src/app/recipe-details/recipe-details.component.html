@@ -1,0 +1,18 @@
+<md-card *ngIf="recipe">
+  <div id="rating-column">
+    Rating
+    <span id="rating">{{recipe.rating | formatRating}}</span>
+  </div>
+
+  <div>
+    <span id="title">{{recipe.title}}</span>
+    <span id="speaker">{{recipe.speaker}}</span>
+
+    <div id="description">
+      {{recipe.description}}
+    </div>
+
+    <watch-button [recipe]="recipe" [watched]="isWatched" (watch)="handleWatch()"></watch-button>
+    <rate-button [recipe]="recipe" (rate)="handleRate($event)"></rate-button>
+  </div>
+</md-card>

@@ -3,10 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { WatchButtonComponent } from './watch-button/watch-button.component';
-import { TalksAndFiltersComponent } from './talks-and-filters/talks-and-filters.component';
-import { TalksComponent } from './talks/talks.component';
-import { TalkDetailsComponent } from './talk-details/talk-details.component';
-import { TalkComponent } from './talk/talk.component';
+import { RecipesAndFiltersComponent } from './recipes-and-filters/recipes-and-filters.component';
+import { RecipesComponent } from './recipes/recipes.component';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { RecipeComponent } from './recipe/recipe.component';
 import { RateButtonComponent } from './rate-button/rate-button.component';
 import { FormatRatingPipe } from './format-rating.pipe';
 import { FiltersComponent } from './filters/filters.component';
@@ -16,7 +16,7 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule, MdInputModule, MdCheckboxModule } from '@angular/material';
 import { Backend } from "./backend";
 import { WatchService } from "./watch";
-import { appReducer, initialState, State, TalksEffects } from './model';
+import { appReducer, initialState, State, RecipesEffects } from './model';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule, ActionReducer, combineReducers } from '@ngrx/store';
 import { EffectsModule } from "@ngrx/effects";
@@ -26,10 +26,10 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
   declarations: [
     AppComponent,
     WatchButtonComponent,
-    TalksAndFiltersComponent,
-    TalksComponent,
-    TalkDetailsComponent,
-    TalkComponent,
+    RecipesAndFiltersComponent,
+    RecipesComponent,
+    RecipeDetailsComponent,
+    RecipeComponent,
     RateButtonComponent,
     FormatRatingPipe,
     FiltersComponent
@@ -45,15 +45,15 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
     MdCheckboxModule,
 
     RouterModule.forRoot([
-      { path: '',  pathMatch: 'full', redirectTo: 'talks' },
-      { path: 'talks',  pathMatch: 'full', component: TalksAndFiltersComponent },
-      { path: 'talk/:id', component: TalkDetailsComponent }
+      { path: '',  pathMatch: 'full', redirectTo: 'recipes' },
+      { path: 'recipes',  pathMatch: 'full', component: RecipesAndFiltersComponent },
+      { path: 'recipe/:id', component: RecipeDetailsComponent }
     ], {useHash: true}),
 
     StoreModule.forRoot(<any>{app: appReducer}, {initialState}),
 
     EffectsModule.forRoot([
-      TalksEffects
+      RecipesEffects
     ]),
 
     StoreRouterConnectingModule
@@ -61,7 +61,7 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
   providers: [
     Backend,
     WatchService,
-    TalksEffects
+    RecipesEffects
   ],
   bootstrap: [AppComponent]
 })

@@ -1,12 +1,12 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {Talk} from "../model";
+import {Recipe} from "../model";
 
 @Component({
   selector: 'rate-button',
   templateUrl: './rate-button.component.html'
 })
 export class RateButtonComponent {
-  @Input() talk: Talk;
+  @Input() recipe: Recipe;
   @Output() rate = new EventEmitter();
 
   promptRating(): void {

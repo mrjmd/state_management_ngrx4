@@ -1,12 +1,12 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {Talk} from "../model";
+import {Recipe} from "../model";
 
 @Component({
   selector: 'watch-button',
   templateUrl: './watch-button.component.html'
 })
 export class WatchButtonComponent {
-  @Input() talk: Talk;
+  @Input() recipe: Recipe;
   @Input() watched: boolean;
   @Output() watch = new EventEmitter();
 
