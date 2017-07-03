@@ -11,6 +11,7 @@ import 'rxjs/add/operator/withLatestFrom';
 
 import {Recipe} from './recipe.model';
 import {Action, Rate, Watch} from '../actions/actions';
+import {appReducer} from '../reducers/reducer';
 
 export type Filters = { speaker: string, title: string, minRating: number };
 export type AppState = { recipes: { [id: number]: Recipe }, list: number[], filters: Filters, watched: { [id: number]: boolean } };
@@ -24,38 +25,6 @@ export const initialState: State = {
     watched: {}
   }
 };
-
-// reducer
-export function appReducer(state: AppState, action: Action): AppState {
-  switch (action.type) {
-    case 'TALKS_UPDATED': {
-      return {...state, ...action.payload};
-    }
-    case  'TALK_UPDATED': {
-      const recipes = {...state.recipes};
-      recipes[action.payload.id] = action.payload;
-      return {...state, recipes};
-    }
-    case 'RATE': {
-      const recipes = {...state.recipes};
-      recipes[action.payload.recipeId].rating = action.payload.rating;
-      return {...state, recipes};
-    }
-    case 'UNRATE': {
-      const recipes = {...state.recipes};
-      recipes[action.payload.recipeId].rating = null;
-      return {...state, recipes};
-    }
-    case 'TALK_WATCHED': {
-      const watched = {...state.watched};
-      watched[action.payload.recipeId] = true;
-      return {...state, watched};
-    }
-    default: {
-      return state;
-    }
-  }
-}
 
 @Injectable()
 export class RecipesEffects {

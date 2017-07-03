@@ -17,7 +17,8 @@ import { MaterialModule, MdInputModule, MdCheckboxModule } from '@angular/materi
 import { Backend } from "./backend";
 import { WatchService } from "./watch";
 import { Recipe} from './models/recipe.model';
-import { appReducer, initialState, State, RecipesEffects } from './models/model';
+import { appReducer } from './reducers/reducer';
+import { initialState, State, RecipesEffects } from './models/model';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule, ActionReducer, combineReducers } from '@ngrx/store';
 import { EffectsModule } from "@ngrx/effects";
