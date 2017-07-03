@@ -10,6 +10,7 @@ import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/withLatestFrom';
 
 import {Recipe} from './recipe.model';
+import {Action, Rate, Watch} from '../actions/actions';
 
 export type Filters = { speaker: string, title: string, minRating: number };
 export type AppState = { recipes: { [id: number]: Recipe }, list: number[], filters: Filters, watched: { [id: number]: boolean } };
@@ -23,15 +24,6 @@ export const initialState: State = {
     watched: {}
   }
 };
-
-// actions
-export type RecipesUpdated = { type: 'TALKS_UPDATED', payload: { recipes: { [id: number]: Recipe }, list: number[] }, filters: Filters };
-export type RecipeUpdated = { type: 'TALK_UPDATED', payload: Recipe };
-export type Watch = { type: 'WATCH', payload: { recipeId: number } };
-export type RecipeWatched = { type: 'TALK_WATCHED', payload: { recipeId: number } };
-export type Rate = { type: 'RATE', payload: { recipeId: number, rating: number } };
-export type Unrate = { type: 'UNRATE', payload: { recipeId: number, error: any } };
-type Action = RouterAction<State> | RecipesUpdated | RecipeUpdated | Watch | RecipeWatched | Rate | Unrate;
 
 // reducer
 export function appReducer(state: AppState, action: Action): AppState {
