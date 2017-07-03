@@ -1,5 +1,5 @@
 import {Component, Input, EventEmitter, Output} from '@angular/core';
-import {Recipe} from "../models/recipe.model";
+import {Recipe} from "../../models/recipe.model";
 
 @Component({
   selector: 'rate-button',

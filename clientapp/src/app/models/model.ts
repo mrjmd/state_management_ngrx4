@@ -11,7 +11,6 @@ import 'rxjs/add/operator/withLatestFrom';
 
 import {Recipe} from './recipe.model';
 
-export type Recipe = Recipe;
 export type Filters = { speaker: string, title: string, minRating: number };
 export type AppState = { recipes: { [id: number]: Recipe }, list: number[], filters: Filters, watched: { [id: number]: boolean } };
 export type State = { app: AppState }; // this will also contain router state

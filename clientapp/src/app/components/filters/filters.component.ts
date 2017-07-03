@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Output, Inject, Input} from "@angular/core";
 import {FormGroup, FormControl} from "@angular/forms";
 import 'rxjs/add/operator/debounceTime';
-import {Filters} from "../models/model";
+import {Filters} from "../../models/model";
 
 
 @Component({
