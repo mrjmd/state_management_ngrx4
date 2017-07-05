@@ -3,6 +3,10 @@
     <input mdInput formControlName="title" placeholder="Title">
   </md-input-container>
 
+  <md-select placeholder="Difficulty" formControlName="difficulty">
+    <md-option *ngFor="let difficulty of difficultyList" [value]="difficulty.value">{{ difficulty.name }}</md-option>
+  </md-select>
+
   <md-checkbox formControlName="highRating">
     High Rating
   </md-checkbox>

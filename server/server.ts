@@ -168,7 +168,8 @@ router.get("/recipes", (req, res) => {
   console.log("GET /recipes", "filters:", filters);
   const filteredRecipes = _recipes.filter(t => {
     const titlePass = filters.title ? t.data.attributes.title.indexOf(filters.title) > -1 : true;
-    return titlePass;
+    const diffPass = filters.difficulty ? t.data.attributes.difficulty === filters.difficulty : true;
+    return titlePass && diffPass;
   });
 
   const recipes = filteredRecipes.reduce((acc, t) => (acc[t.data.id] = t, acc), {});

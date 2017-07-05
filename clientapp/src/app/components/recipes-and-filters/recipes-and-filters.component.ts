@@ -26,6 +26,7 @@ export class RecipesAndFiltersComponent {
   private createParams(filters: Filters): Params {
     const r: any = {};
     if (filters.title) r.title = filters.title;
+    if (filters.difficulty) r.difficulty = filters.difficulty;
     if (filters.minRating) r.minRating = filters.minRating;
     return r;
   }

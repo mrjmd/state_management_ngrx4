@@ -13,13 +13,13 @@ import {Recipe} from './recipe.model';
 import {Action, Rate, Watch} from '../actions/actions';
 import {appReducer} from '../reducers/reducer';
 
-export type Filters = { title: string, minRating: number };
+export type Filters = { title: string, difficulty: string, minRating: number };
 export type AppState = { recipes: { [id: string]: Recipe }, list: number[], filters: Filters, watched: { [id: string]: boolean } };
 export type State = { app: AppState }; // this will also contain router state
 
 export const initialState: State = {
   app: {
-    filters: {title: "", minRating: 0},
+    filters: {title: "", difficulty: "", minRating: 0},
     recipes: {},
     list: [],
     watched: {}

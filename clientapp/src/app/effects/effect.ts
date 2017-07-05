@@ -57,9 +57,8 @@ export class RecipesEffects {
 }
 
 function createFilters(p: Params): Filters {
-  return {title: p['title'] || null, minRating: p['minRating'] ? +p['minRating'] : 0};
+  return {title: p['title'] || null, difficulty: p['difficulty'] || '', minRating: p['minRating'] ? +p['minRating'] : 0};
 }
-
 
 function firstSegment(r: RouterNavigationAction) {
   return r.payload.routerState.root.firstChild;
