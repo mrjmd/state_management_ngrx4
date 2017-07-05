@@ -21,14 +21,12 @@ export class FiltersComponent {
     this.filtersForm.setValue({
       title: v.title,
       difficulty: v.difficulty,
-      highRating: v.minRating >= 9
     }, {emitEvent: false});
   }
 
   filtersForm = new FormGroup({
     title: new FormControl(),
     difficulty: new FormControl(),
-    highRating: new FormControl(false),
   });
 
   constructor() {
@@ -37,8 +35,7 @@ export class FiltersComponent {
     });
   }
 
-  private createFiltersObject({title, difficulty, highRating}: { title: string, difficulty: string, highRating: false }): Filters {
-    const minRating = highRating ? 9 : 0;
-    return {title: title || null, difficulty: difficulty || null, minRating};
+  private createFiltersObject({title, difficulty}: { title: string, difficulty: string}): Filters {
+    return {title: title || null, difficulty: difficulty || null};
   }
 }

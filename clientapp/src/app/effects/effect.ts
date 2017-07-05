@@ -9,7 +9,7 @@ import {of} from "rxjs/observable/of";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/withLatestFrom';
 import {State, Filters} from "../models/model";
-import {Rate, Watch} from "../actions/actions";
+import {Watch} from "../actions/actions";
 
 @Injectable()
 export class RecipesEffects {
@@ -26,14 +26,6 @@ export class RecipesEffects {
       return of();
     }
   });
-
-  @Effect() rateRecipe = this.actions.ofType('RATE').
-    switchMap((a: Rate) => {
-      return this.backend.rateRecipe(a.payload.recipeId, a.payload.rating).switchMap(() => of()).catch(e => {
-        console.log('Error', e);
-        return of({type: 'UNRATE', payload: {recipeId: a.payload.recipeId}});
-      });
-    });
 
   @Effect() watchRecipe = this.actions.ofType('WATCH').
     map((a: Watch) => {
@@ -57,7 +49,7 @@ export class RecipesEffects {
 }
 
 function createFilters(p: Params): Filters {
-  return {title: p['title'] || null, difficulty: p['difficulty'] || '', minRating: p['minRating'] ? +p['minRating'] : 0};
+  return {title: p['title'] || null, difficulty: p['difficulty'] || ''};
 }
 
 function firstSegment(r: RouterNavigationAction) {

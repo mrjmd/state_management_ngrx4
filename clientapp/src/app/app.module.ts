@@ -6,8 +6,6 @@ import { RecipesAndFiltersComponent } from './components/recipes-and-filters/rec
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
-import { RateButtonComponent } from './components/rate-button/rate-button.component';
-import { FormatRatingPipe } from './format-rating.pipe';
 import { FiltersComponent } from './components/filters/filters.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
@@ -31,8 +29,6 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
     RecipesComponent,
     RecipeDetailsComponent,
     RecipeComponent,
-    RateButtonComponent,
-    FormatRatingPipe,
     FiltersComponent
   ],
   imports: [

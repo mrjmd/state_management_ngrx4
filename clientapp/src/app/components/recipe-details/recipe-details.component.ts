@@ -25,16 +25,6 @@ export class RecipeDetailsComponent {
     });
   }
 
-  handleRate(newRating: number): void {
-    this.store.dispatch({
-      type: 'RATE',
-      payload: {
-        recipeId: this.recipe.id,
-        rating: newRating
-      }
-    });
-  }
-
   handleWatch(): void {
     this.store.dispatch({
       type: 'WATCH',

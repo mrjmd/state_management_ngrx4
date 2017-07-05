@@ -14,7 +14,6 @@ export class Backend {
     const params = new URLSearchParams();
     params.set("title", filters.title);
     params.set("difficulty", filters.difficulty);
-    params.set("minRating", filters.minRating.toString());
     return this.http.get(`${this.url}/recipes`, {search: params}).map(r => r.json());
   }
 
@@ -22,9 +21,5 @@ export class Backend {
     const params = new URLSearchParams();
     params.set("id", id);
     return this.http.get(`${this.url}/recipe/`, {search: params}).map(r => r.json()['recipe']);
-  }
-
-  rateRecipe(id: string, rating: number): Observable<any> {
-    return this.http.post(`${this.url}/rate`, {id, yourRating: rating});
   }
 }
