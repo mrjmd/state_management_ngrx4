@@ -1,5 +1,5 @@
 export class WatchService {
-  watch(recipeId: number): void {
+  watch(recipeId: string): void {
     console.log("watch", recipeId);
   }
 }

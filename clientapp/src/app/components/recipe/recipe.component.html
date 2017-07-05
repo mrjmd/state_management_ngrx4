@@ -5,7 +5,7 @@
   </div>
 
   <div>
-    <span id="title"><a [routerLink]="['/recipe', recipe.id]">{{recipe.title}}</a></span>
-    <span id="difficulty">{{recipe.difficulty}}</span>
+    <span id="title"><a [routerLink]="['/recipe', recipe.data.id]">{{recipe.data.attributes.title}}</a></span>
+    <span id="difficulty">{{recipe.data.attributes.difficulty}}</span>
   </div>
 </md-card>

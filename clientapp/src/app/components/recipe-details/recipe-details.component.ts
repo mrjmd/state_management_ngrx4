@@ -18,7 +18,8 @@ export class RecipeDetailsComponent {
 
   constructor(private route: ActivatedRoute, private store: Store<State>) {
     store.select('app').subscribe(t => {
-      const id = (+route.snapshot.paramMap.get('id'));
+      const id = route.snapshot.paramMap.get('id');
+      console.log(id);
       this.recipe = t.recipes[id];
       this.isWatched = t.watched[id];
     });

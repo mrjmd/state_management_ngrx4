@@ -19,9 +19,9 @@ export class RecipesEffects {
   });
 
   @Effect() navigateToRecipe = this.handleNavigation('recipe/:id', (r: ActivatedRouteSnapshot, state: State) => {
-    const id = +r.paramMap.get('id');
+    const id = r.paramMap.get('id');
     if (! state.app.recipes[id]) {
-      return this.backend.findRecipe(+r.paramMap.get('id')).map(resp => ({type: 'TALK_UPDATED', payload: resp}));
+      return this.backend.findRecipe(r.paramMap.get('id')).map(resp => ({type: 'TALK_UPDATED', payload: resp}));
     } else {
       return of();
     }
