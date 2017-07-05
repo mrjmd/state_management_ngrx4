@@ -12,7 +12,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule, MdInputModule, MdCheckboxModule } from '@angular/material';
 import { Backend } from "./services/backend";
-import { WatchService } from "./watch";
 import { Recipe} from './models/recipe.model';
 import { appReducer } from './reducers/reducer';
 import { RecipesEffects } from './effects/effect';
@@ -57,7 +56,6 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
   ],
   providers: [
     Backend,
-    WatchService,
     RecipesEffects
   ],
   bootstrap: [AppComponent]

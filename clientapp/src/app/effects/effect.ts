@@ -1,6 +1,5 @@
 import {RouterAction, ROUTER_NAVIGATION, RouterNavigationAction} from '@ngrx/router-store';
 import {Actions, Effect} from '@ngrx/effects';
-import {WatchService} from "app/watch";
 import {Backend} from "../services/backend";
 import {Params, ActivatedRouteSnapshot} from "@angular/router";
 import {Store, combineReducers} from "@ngrx/store";
@@ -9,7 +8,6 @@ import {of} from "rxjs/observable/of";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/withLatestFrom';
 import {State, Filters} from "../models/model";
-import {Watch} from "../actions/actions";
 
 @Injectable()
 export class RecipesEffects {
@@ -27,14 +25,7 @@ export class RecipesEffects {
     }
   });
 
-  @Effect() watchRecipe = this.actions.ofType('WATCH').
-    map((a: Watch) => {
-      this.watch.watch(a.payload.recipeId);
-      return {type: 'TALK_WATCHED', payload: a.payload};
-    });
-
-  constructor(private actions: Actions, private store: Store<State>, private backend: Backend, private watch: WatchService) {
-  }
+  constructor(private actions: Actions, private store: Store<State>, private backend: Backend) {}
 
   private handleNavigation(segment: string, callback: (a: ActivatedRouteSnapshot, state: State) => Observable<any>) {
     const nav = this.actions.ofType(ROUTER_NAVIGATION).

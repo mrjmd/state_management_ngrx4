@@ -12,11 +12,6 @@ export function appReducer(state: AppState, action: Action): AppState {
       recipes[action.payload.id] = action.payload;
       return {...state, recipes};
     }
-    case 'TALK_WATCHED': {
-      const watched = {...state.watched};
-      watched[action.payload.recipeId] = true;
-      return {...state, watched};
-    }
     default: {
       return state;
     }
