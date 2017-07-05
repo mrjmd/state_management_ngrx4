@@ -11,7 +11,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { MaterialModule, MdInputModule, MdCheckboxModule } from '@angular/material';
-import { Backend } from "./backend";
+import { Backend } from "./services/backend";
 import { WatchService } from "./watch";
 import { Recipe} from './models/recipe.model';
 import { appReducer } from './reducers/reducer';
@@ -45,7 +45,7 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
       { path: '',  pathMatch: 'full', redirectTo: 'recipes' },
       { path: 'recipes',  pathMatch: 'full', component: RecipesAndFiltersComponent },
       { path: 'recipe/:id', component: RecipeDetailsComponent }
-    ], {useHash: true}),
+    ]),
 
     StoreModule.forRoot(<any>{app: appReducer}, {initialState}),
 

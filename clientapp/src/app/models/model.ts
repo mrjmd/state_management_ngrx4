@@ -1,7 +1,7 @@
 import {RouterAction, ROUTER_NAVIGATION, RouterNavigationAction} from '@ngrx/router-store';
 import {Actions, Effect} from '@ngrx/effects';
 import {WatchService} from "app/watch";
-import {Backend} from "app/backend";
+import {Backend} from "../services/backend";
 import {Params, ActivatedRouteSnapshot} from "@angular/router";
 import {Store, combineReducers} from "@ngrx/store";
 import {Injectable} from "@angular/core";

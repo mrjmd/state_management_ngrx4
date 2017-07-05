@@ -1,5 +1,5 @@
 import {Component, Input} from "@angular/core";
-import {Backend} from "../../backend";
+import {Backend} from "../../services/backend";
 import {ActivatedRoute} from "@angular/router";
 import 'rxjs/add/operator/mergeMap';
 import {WatchService} from "../../watch";
