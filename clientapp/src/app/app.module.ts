@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { WatchButtonComponent } from './components/watch-button/watch-button.component';
 import { RecipesAndFiltersComponent } from './components/recipes-and-filters/recipes-and-filters.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
@@ -28,7 +27,6 @@ import { StoreRouterConnectingModule } from "@ngrx/router-store";
 @NgModule({
   declarations: [
     AppComponent,
-    WatchButtonComponent,
     RecipesAndFiltersComponent,
     RecipesComponent,
     RecipeDetailsComponent,
