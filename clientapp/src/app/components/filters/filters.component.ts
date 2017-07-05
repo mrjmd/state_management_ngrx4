@@ -14,13 +14,11 @@ export class FiltersComponent {
   @Input() set filters(v) {
     this.filtersForm.setValue({
       title: v.title,
-      speaker: v.speaker,
       highRating: v.minRating >= 9
     }, {emitEvent: false});
   }
 
   filtersForm = new FormGroup({
-    speaker: new FormControl(),
     title: new FormControl(),
     highRating: new FormControl(false),
   });
@@ -31,8 +29,8 @@ export class FiltersComponent {
     });
   }
 
-  private createFiltersObject({title, speaker, highRating}: { title: string, speaker: string, highRating: false }): Filters {
+  private createFiltersObject({title, highRating}: { title: string, highRating: false }): Filters {
     const minRating = highRating ? 9 : 0;
-    return {speaker: speaker || null, title: title || null, minRating};
+    return {title: title || null, minRating};
   }
 }

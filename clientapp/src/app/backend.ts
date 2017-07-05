@@ -12,7 +12,6 @@ export class Backend {
 
   findRecipes(filters: Filters): Observable<{recipes: {[id: number]: Recipe}, list: number[]}> {
     const params = new URLSearchParams();
-    params.set("speaker", filters.speaker);
     params.set("title", filters.title);
     params.set("minRating", filters.minRating.toString());
     return this.http.get(`${this.url}/recipes`, {search: params}).map(r => r.json());

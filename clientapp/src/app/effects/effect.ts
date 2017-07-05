@@ -57,7 +57,7 @@ export class RecipesEffects {
 }
 
 function createFilters(p: Params): Filters {
-  return {speaker: p['speaker'] || null, title: p['title'] || null, minRating: p['minRating'] ? +p['minRating'] : 0};
+  return {title: p['title'] || null, minRating: p['minRating'] ? +p['minRating'] : 0};
 }
 
 
