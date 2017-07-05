@@ -1,7 +1,12 @@
 // state
 export type Recipe = {
-  id: string,
-  title: string,
-  difficulty: string,
-  description: string
+  data: {
+    id: string,
+    type: string,
+    attributes: {
+      title: string,
+      difficulty: string,
+      instructions: string
+    }
+  }
 };

@@ -9,7 +9,7 @@ export function appReducer(state: AppState, action: Action): AppState {
     }
     case  'TALK_UPDATED': {
       const recipes = {...state.recipes};
-      recipes[action.payload.id] = action.payload;
+      recipes[action.payload.data.id] = action.payload;
       return {...state, recipes};
     }
     default: {
