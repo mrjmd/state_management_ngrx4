@@ -13,13 +13,13 @@ import {State, Filters} from "../models/model";
 export class RecipesEffects {
   @Effect() navigateToRecipes = this.handleNavigation('recipes', (r: ActivatedRouteSnapshot) => {
     const filters = createFilters(r.params);
-    return this.backend.findRecipes(filters).map(resp => ({type: 'TALKS_UPDATED', payload: {...resp, filters}}));
+    return this.backend.findRecipes(filters).map(resp => ({type: 'RECIPES_UPDATED', payload: {...resp, filters}}));
   });
 
   @Effect() navigateToRecipe = this.handleNavigation('recipe/:id', (r: ActivatedRouteSnapshot, state: State) => {
     const id = r.paramMap.get('id');
     if (! state.app.recipes[id]) {
-      return this.backend.findRecipe(r.paramMap.get('id')).map(resp => ({type: 'TALK_UPDATED', payload: resp}));
+      return this.backend.findRecipe(r.paramMap.get('id')).map(resp => ({type: 'RECIPE_UPDATED', payload: resp}));
     } else {
       return of();
     }

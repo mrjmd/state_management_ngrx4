@@ -13,7 +13,7 @@ import {Action} from '../actions/actions';
 import {appReducer} from '../reducers/reducer';
 
 export type Filters = { title: string, difficulty: string };
-export type AppState = { recipes: { [id: string]: Recipe }, list: number[], filters: Filters };
+export type AppState = { recipes: { [id: string]: Recipe }, list: string[], filters: Filters };
 export type State = { app: AppState }; // this will also contain router state
 
 export const initialState: State = {
