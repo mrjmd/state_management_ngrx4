@@ -6,7 +6,7 @@ import {Filters} from "../models/model";
 
 @Injectable()
 export class Backend {
-  private url = 'http://localhost:4444';
+  private url = 'https://dev-contentacms.pantheonsite.io/api';
 
   constructor(private http: Http) {}
 
@@ -14,7 +14,25 @@ export class Backend {
     const params = new URLSearchParams();
     params.set("title", filters.title);
     params.set("difficulty", filters.difficulty);
-    return this.http.get(`${this.url}/recipes`, {search: params}).map(r => r.json());
+    return this.http.get(`${this.url}/recipes`, {search: params}).map(this.normalizeData);
+  }
+
+  private normalizeData(res) {
+    let response = res.json();
+    let normalized = {
+      recipes: {},
+      list: []
+    };
+    for (var key in response) {
+      if (key === 'data') {
+        //console.log('number of recipes: ' + response[key].length);
+        for (let num = 0; num < response[key].length; num++) {
+          normalized.recipes[response[key][num]['id']] = {'data': response[key][num]};
+          normalized.list.push(response[key][num]['id']);
+        }
+      }
+    }
+    return normalized;
   }
 
   findRecipe(id: string): Observable<Recipe> {
