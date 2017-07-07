@@ -15,6 +15,8 @@ export class Backend {
     let title = `filter[title][condition][path]=title&filter[title][condition][value]=${filters.title}&filter[title][condition][operator]=CONTAINS&`;
     filterString += filters.title ? title : '';
     filterString += filters.difficulty ? `filter[difficulty][value]=${filters.difficulty}&` : '';
+    let prepTime = `filter[totalTime][condition][path]=totalTime&filter[totalTime][condition][value]=${filters.prepTime}&filter[totalTime][condition][operator]=<&`;
+    filterString += filters.prepTime > 0 ? prepTime : '';
     filterString += filters.limit ? `page[limit]=${filters.limit}` : '';
     return this.http.get(`${this.url}/recipes` + filterString).map(this.normalizeData);
   }
