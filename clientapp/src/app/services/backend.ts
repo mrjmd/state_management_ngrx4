@@ -37,8 +37,6 @@ export class Backend {
   }
 
   findRecipe(id: string): Observable<Recipe> {
-    const params = new URLSearchParams();
-    params.set("id", id);
-    return this.http.get(`${this.url}/recipe/`, {search: params}).map(r => r.json()['recipe']);
+    return this.http.get(`${this.url}/recipes/${id}`).map(r => r.json());
   }
 }
