@@ -5,6 +5,7 @@ import { State } from "../../models/state.model";
 import { Recipe } from "../../models/recipe.model";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-cmp',

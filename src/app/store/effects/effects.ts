@@ -5,7 +5,13 @@ import {Store} from "@ngrx/store";
 import {Injectable} from "@angular/core";
 import {of} from "rxjs/observable/of";
 import {Observable} from "rxjs/Observable";
+
 import 'rxjs/add/operator/withLatestFrom';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
+
 import {Backend} from "../../services/backend";
 import {Filters} from "../../models/filters.model";
 import {State} from "../../models/state.model";

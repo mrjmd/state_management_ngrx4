@@ -3,6 +3,7 @@ import {Observable} from "rxjs/Observable";
 import {Injectable} from "@angular/core";
 import {Recipe} from "../models/recipe.model";
 import {Filters} from "../models/filters.model";
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class Backend {
