@@ -11,10 +11,11 @@ export class Backend {
   constructor(private http: Http) {}
 
   findRecipes(filters: Filters): Observable<{recipes: {[id: string]: Recipe}, list: number[]}> {
-    const params = new URLSearchParams();
-    params.set("title", filters.title);
-    params.set("difficulty", filters.difficulty);
-    return this.http.get(`${this.url}/recipes`, {search: params}).map(this.normalizeData);
+    let filterString = '?';
+    let title = `filter[title][condition][path]=title&filter[title][condition][value]=${filters.title}&filter[title][condition][operator]=CONTAINS&`;
+    filterString += filters.title ? title : '';
+    filterString += filters.difficulty ? `filter[difficulty][value]=${filters.difficulty}&` : '';
+    return this.http.get(`${this.url}/recipes` + filterString).map(this.normalizeData);
   }
 
   private normalizeData(res) {
