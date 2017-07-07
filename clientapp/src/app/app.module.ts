@@ -20,7 +20,7 @@ import { Backend } from "./services/backend";
 import { Recipe} from './models/recipe.model';
 import { appReducer } from './store/reducers/reducer';
 import { RecipesEffects } from './store/effects/effect';
-import { initialState } from './models/model';
+import { initialState } from './models/state.model';
 
 @NgModule({
   declarations: [

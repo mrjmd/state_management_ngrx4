@@ -1,6 +1,6 @@
 import {Recipe} from './recipe.model';
+import {Filters} from './filters.model';
 
-export type Filters = { title: string, difficulty: string, prepTime: number, limit: number };
 export type AppState = { recipes: { [id: string]: Recipe }, list: string[], filters: Filters };
 export type State = { app: AppState }; // this will also contain router state
 

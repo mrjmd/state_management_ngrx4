@@ -1,6 +1,7 @@
 import {Component, Inject} from "@angular/core";
 import { Router, Params } from "@angular/router";
-import { Filters, State } from "../../models/model";
+import { Filters } from "../../models/filters.model";
+import { State } from "../../models/state.model";
 import { Recipe } from "../../models/recipe.model";
 import { Store } from "@ngrx/store";
 import { Observable } from "rxjs/Observable";

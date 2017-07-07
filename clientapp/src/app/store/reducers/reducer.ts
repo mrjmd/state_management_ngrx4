@@ -1,5 +1,5 @@
 import {Action} from "../actions/actions";
-import {AppState} from "../../models/model";
+import {AppState} from "../../models/state.model";
 
 // reducer
 export function appReducer(state: AppState, action: Action): AppState {

@@ -7,7 +7,8 @@ import {of} from "rxjs/observable/of";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/withLatestFrom';
 import {Backend} from "../../services/backend";
-import {State, Filters} from "../../models/model";
+import {Filters} from "../../models/filters.model";
+import {State} from "../../models/state.model";
 
 @Injectable()
 export class RecipesEffects {

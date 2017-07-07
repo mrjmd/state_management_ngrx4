@@ -2,7 +2,7 @@ import {Component, Input} from "@angular/core";
 import {Backend} from "../../services/backend";
 import {ActivatedRoute} from "@angular/router";
 import 'rxjs/add/operator/mergeMap';
-import { State } from "../../models/model";
+import { State } from "../../models/state.model";
 import { Recipe } from "../../models/recipe.model";
 import { Store } from "@ngrx/store";
 
