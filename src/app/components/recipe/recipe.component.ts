@@ -8,4 +8,5 @@ import {Recipe} from "../../models/recipe.model";
 })
 export class RecipeComponent {
   @Input() recipe: Recipe;
+  @Input() image;
 }

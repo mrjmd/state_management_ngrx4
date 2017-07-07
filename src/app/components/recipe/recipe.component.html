@@ -1,4 +1,5 @@
 <md-card class="card">
+  <img *ngIf="image" md-card-image [src]="image">
   <md-card-content>
     <span id="title"><a [routerLink]="['/recipe', recipe.data.id]">{{recipe.data.attributes.title}}</a></span>
     <span id="difficulty">Difficulty: {{recipe.data.attributes.difficulty}}</span>
