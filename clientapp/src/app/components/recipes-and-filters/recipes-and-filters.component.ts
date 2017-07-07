@@ -27,6 +27,7 @@ export class RecipesAndFiltersComponent {
     const r: any = {};
     if (filters.title) r.title = filters.title;
     if (filters.difficulty) r.difficulty = filters.difficulty;
+    if (filters.limit) r.limit = filters.limit;
     return r;
   }
 }

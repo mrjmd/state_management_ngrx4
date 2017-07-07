@@ -15,18 +15,24 @@ export class FiltersComponent {
     {value: 'hard', name: 'Difficult'}
   ];
 
+  limitList = [
+    '12', '24', '36', '48'
+  ];
+
   @Output() filtersChange = new EventEmitter();
 
   @Input() set filters(v) {
     this.filtersForm.setValue({
       title: v.title,
       difficulty: v.difficulty,
+      limit: v.limit,
     }, {emitEvent: false});
   }
 
   filtersForm = new FormGroup({
     title: new FormControl(),
     difficulty: new FormControl(),
+    limit: new FormControl(),
   });
 
   constructor() {
@@ -35,7 +41,7 @@ export class FiltersComponent {
     });
   }
 
-  private createFiltersObject({title, difficulty}: { title: string, difficulty: string}): Filters {
-    return {title: title || null, difficulty: difficulty || null};
+  private createFiltersObject({title, difficulty, limit}: { title: string, difficulty: string, limit: number}): Filters {
+    return {title: title || null, difficulty: difficulty || null, limit: limit || null};
   }
 }

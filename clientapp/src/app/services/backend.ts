@@ -15,6 +15,7 @@ export class Backend {
     let title = `filter[title][condition][path]=title&filter[title][condition][value]=${filters.title}&filter[title][condition][operator]=CONTAINS&`;
     filterString += filters.title ? title : '';
     filterString += filters.difficulty ? `filter[difficulty][value]=${filters.difficulty}&` : '';
+    filterString += filters.limit ? `page[limit]=${filters.limit}` : '';
     return this.http.get(`${this.url}/recipes` + filterString).map(this.normalizeData);
   }
 

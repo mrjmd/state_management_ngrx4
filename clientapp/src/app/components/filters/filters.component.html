@@ -6,4 +6,8 @@
   <md-select placeholder="Difficulty" formControlName="difficulty">
     <md-option *ngFor="let difficulty of difficultyList" [value]="difficulty.value">{{ difficulty.name }}</md-option>
   </md-select>
+
+    <md-select placeholder="Limit" formControlName="limit">
+    <md-option *ngFor="let limit of limitList" [value]="limit">{{ limit }}</md-option>
+  </md-select>
 </div>
