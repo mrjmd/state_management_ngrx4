@@ -1,7 +1,7 @@
 import {Action} from "../actions/actions";
 import {AppState} from "../../models/state.model";
 
-// reducer
+// Reducers
 export function appReducer(state: AppState, action: Action): AppState {
   switch (action.type) {
     case 'RECIPES_UPDATED': {

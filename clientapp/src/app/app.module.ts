@@ -18,8 +18,8 @@ import { FiltersComponent } from './components/filters/filters.component';
 
 import { Backend } from "./services/backend";
 import { Recipe} from './models/recipe.model';
-import { appReducer } from './store/reducers/reducer';
-import { RecipesEffects } from './store/effects/effect';
+import { appReducer } from './store/reducers/reducers';
+import { RecipesEffects } from './store/effects/effects';
 import { initialState } from './models/state.model';
 
 @NgModule({
