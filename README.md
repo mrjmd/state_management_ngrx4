@@ -1,6 +1,23 @@
-# Clientapp
+# Contenta Angular
+
+[![Build Status](https://travis-ci.org/contentacms/contenta_angular.svg?branch=master)](https://travis-ci.org/contentacms/contenta_angular)
+
+Contenta Angular is a best practices showcase of decoupled Drupal with Angular. It is part of the wider [Contenta](http://www.contentacms.org) Drupal distribution. This project is under heavy development right now and we can use your help!
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.1.1.
+
+## Quick start
+
+`git clone git@github.com:contentacms/contenta_angular.git`
+`cd contenta_angular`
+`npm install`
+`ng serve`
+
+Your Contenta Angular build will be at: `http://localhost:4200/`.
+
+## Live demo
+
+This project auto deploys to Firebase, and the latest version can always be seen at [angular.contentacms.io](http://angular.contentacms.io).
 
 ## Development server
 
@@ -12,7 +29,13 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. 
+
+## Production Build
+
+Use `ng build -prod -aot` flag for a production build.
+Then run `npm run precache` to create your service worker.
+And then `firebase deploy` (you'll need this configured first) to publish.
 
 ## Running unit tests
 
