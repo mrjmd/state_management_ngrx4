@@ -1,4 +1,7 @@
-:host {
-  display: flex;
-  flex-direction: column;
+@import "./../../../styles/settings/breakpoints.scss";
+
+.recipes {
+    @include breakpoint($narrow-devices) {
+        margin-top: 40px;
+    }
 }

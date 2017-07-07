@@ -1,4 +1,16 @@
+@import "./../../../styles/settings/breakpoints.scss";
+
 :host {
   display: flex;
   flex-direction: column;
+}
+
+.recipe-list {
+    display: flex;
+    flex-flow: column;
+    @include breakpoint($narrow-devices) {
+        justify-content: space-between;
+        flex-flow: row;
+        flex-wrap: wrap;
+    }
 }

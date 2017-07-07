@@ -1,12 +1,22 @@
+@import "./../../../styles/settings/breakpoints.scss";
+
 :host {
   margin: 10px;
-}
-
-md-card {
-  display: flex;
 }
 
 #title {
   display: block;
   font-size: 20px;
+}
+
+.recipe-item {
+    margin-top: 15px;
+    flex: 1;
+    @include breakpoint($narrow-devices) {
+        margin-top: 40px;
+        flex: inherit;
+        width: 32%;
+        margin-top: 1%;
+        margin-bottom: 1%;
+    }
 }
