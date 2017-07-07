@@ -1,6 +1,9 @@
-<md-card>
-    <div>
-      <span id="title"><a [routerLink]="['/recipe', recipe.data.id]">{{recipe.data.attributes.title}}</a></span>
-      <span id="difficulty">{{recipe.data.attributes.difficulty}}</span>
-    </div>
+<md-card class="card">
+  <md-card-content>
+    <span id="title"><a [routerLink]="['/recipe', recipe.data.id]">{{recipe.data.attributes.title}}</a></span>
+    <span id="difficulty">Difficulty: {{recipe.data.attributes.difficulty}}</span>
+  </md-card-content>
+  <md-card-actions class="actions">
+    <a [color]="'accent'" md-button md-raised-button [routerLink]="['/recipe', recipe.data.id]">More</a>
+  </md-card-actions>
 </md-card>
