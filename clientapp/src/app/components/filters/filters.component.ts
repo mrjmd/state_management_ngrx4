@@ -12,7 +12,7 @@ export class FiltersComponent {
     {value: '', name: 'All'},
     {value: 'easy', name: 'Easy'},
     {value: 'middle', name: 'Moderate'},
-    {value: 'difficult', name: 'Difficult'}
+    {value: 'hard', name: 'Difficult'}
   ];
 
   @Output() filtersChange = new EventEmitter();
