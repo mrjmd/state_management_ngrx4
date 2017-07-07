@@ -31,6 +31,7 @@ import { RecipeDetailsComponent } from './components/recipe-details/recipe-detai
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { FiltersComponent } from './components/filters/filters.component';
 import { CardComponent } from './components/card/card.component';
+import { FeaturesComponent } from './components/features/features.component';
 
 import { Backend } from "./services/backend";
 import { MaterialIconsService } from './services/material-icons/material-icons.service';
@@ -43,6 +44,7 @@ import { initialState } from './models/state.model';
   declarations: [
     AppComponent,
     CardComponent,
+    FeaturesComponent,
     HeaderComponent,
     SidenavComponent,
     RecipesAndFiltersComponent,
@@ -69,6 +71,7 @@ import { initialState } from './models/state.model';
     MdCardModule,
     RouterModule.forRoot([
       { path: '',  pathMatch: 'full', redirectTo: 'recipes' },
+      { path: 'features', component: FeaturesComponent },
       { path: 'recipes',  pathMatch: 'full', component: RecipesAndFiltersComponent },
       { path: 'recipe/:id', component: RecipeDetailsComponent }
     ]),
