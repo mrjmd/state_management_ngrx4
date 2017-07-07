@@ -1,0 +1,15 @@
+@import "./typography.scss";
+
+body {
+    margin: 0;
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+button {
+    background: transparent;
+    border: none;
+}
+
+svg {
+    fill: currentColor;
+}

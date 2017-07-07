@@ -1,0 +1,65 @@
+@import "./../../../styles/settings/breakpoints.scss";
+
+:host {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.app-title {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: white;
+    @include breakpoint($narrow-devices) {
+        display: none;
+    }
+}
+
+.sidenav-toggle {
+    @include breakpoint($narrow-devices) {
+        display: none;
+    }
+}
+
+.desktop-menu {
+    display: none;
+    @include breakpoint($narrow-devices) {
+        display: flex;
+        width: 100%;
+    }
+
+    .app-title {
+        display: inline-block;
+        margin-left: 10px;
+    }
+}
+
+.menu-icon {
+    color: white;
+}
+
+.github-logo {
+    img {
+        margin-right: 10px;
+    }
+}
+
+.sidenav-toggle {
+    cursor: pointer;
+    margin-right: 10px;
+    &:focus,
+    &:hover,
+    &:active {
+        outline: none;
+    }
+}
+
+.menu-item {
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

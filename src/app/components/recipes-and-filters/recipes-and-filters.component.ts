@@ -9,7 +9,7 @@ import { Observable } from "rxjs/Observable";
 @Component({
   selector: 'app-cmp',
   templateUrl: './recipes-and-filters.component.html',
-  styleUrls: ['./recipes-and-filters.component.css']
+  styleUrls: ['./recipes-and-filters.component.scss']
 })
 export class RecipesAndFiltersComponent {
   filters: Observable<Filters>;

@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "clientapp"
+    "name": "contenta-angular"
   },
   "apps": [
     {
@@ -10,7 +10,7 @@
       "assets": [
         "assets",
         "favicon.ico",
-        "../node_modules/@angular/material/prebuilt-themes"
+        "manifest.json"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -20,7 +20,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles/layout/styles.scss",
+        "styles/layout/material_theme.scss"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
@@ -52,7 +53,7 @@
     }
   },
   "defaults": {
-    "styleExt": "css",
+    "styleExt": "scss",
     "component": {}
   }
 }

@@ -9,7 +9,7 @@ import { Store } from "@ngrx/store";
 @Component({
   selector: 'recipe-details-cmp',
   templateUrl: './recipe-details.component.html',
-  styleUrls: ['./recipe-details.component.css']
+  styleUrls: ['./recipe-details.component.scss']
 })
 export class RecipeDetailsComponent {
   recipe: Recipe;
