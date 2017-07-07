@@ -16,7 +16,10 @@ export class FiltersComponent {
   ];
 
   limitList = [
-    '12', '24', '36', '48'
+    {value: 12, name: '12'},
+    {value: 24, name: '24'},
+    {value: 36, name: '36'},
+    {value: 48, name: '48'}
   ];
 
   @Output() filtersChange = new EventEmitter();

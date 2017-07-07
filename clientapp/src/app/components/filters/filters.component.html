@@ -8,6 +8,6 @@
   </md-select>
 
     <md-select placeholder="Limit" formControlName="limit">
-    <md-option *ngFor="let limit of limitList" [value]="limit">{{ limit }}</md-option>
+    <md-option *ngFor="let limit of limitList" [value]="limit.value">{{ limit.name }}</md-option>
   </md-select>
 </div>
