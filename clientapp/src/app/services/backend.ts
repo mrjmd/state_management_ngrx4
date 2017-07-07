@@ -1,4 +1,4 @@
-import {Http, URLSearchParams} from "@angular/http";
+import {Http} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {Injectable} from "@angular/core";
 import {Recipe} from "../models/recipe.model";
