@@ -1,7 +1,7 @@
 import {RouterAction} from '@ngrx/router-store';
 
-import {Recipe} from "../models/recipe.model";
-import {Filters, State} from "../models/model";
+import {Recipe} from "../../models/recipe.model";
+import {Filters, State} from "../../models/model";
 
 // actions
 export type RecipesUpdated = { type: 'RECIPES_UPDATED', payload: { recipes: { [id: string]: Recipe }, list: string[] }, filters: Filters };

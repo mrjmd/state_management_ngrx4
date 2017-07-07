@@ -1,13 +1,13 @@
 import {ROUTER_NAVIGATION, RouterNavigationAction} from '@ngrx/router-store';
 import {Actions, Effect} from '@ngrx/effects';
-import {Backend} from "../services/backend";
 import {Params, ActivatedRouteSnapshot} from "@angular/router";
 import {Store} from "@ngrx/store";
 import {Injectable} from "@angular/core";
 import {of} from "rxjs/observable/of";
 import {Observable} from "rxjs/Observable";
 import 'rxjs/add/operator/withLatestFrom';
-import {State, Filters} from "../models/model";
+import {Backend} from "../../services/backend";
+import {State, Filters} from "../../models/model";
 
 @Injectable()
 export class RecipesEffects {

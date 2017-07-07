@@ -1,5 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { MaterialModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from "@ngrx/effects";
+import { StoreRouterConnectingModule } from "@ngrx/router-store";
 
 import { AppComponent } from './app.component';
 import { RecipesAndFiltersComponent } from './components/recipes-and-filters/recipes-and-filters.component';
@@ -7,19 +15,12 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 import { RecipeDetailsComponent } from './components/recipe-details/recipe-details.component';
 import { RecipeComponent } from './components/recipe/recipe.component';
 import { FiltersComponent } from './components/filters/filters.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
-import { MaterialModule, MdInputModule, MdCheckboxModule } from '@angular/material';
+
 import { Backend } from "./services/backend";
 import { Recipe} from './models/recipe.model';
-import { appReducer } from './reducers/reducer';
-import { RecipesEffects } from './effects/effect';
-import { initialState, State } from './models/model';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule, ActionReducer, combineReducers } from '@ngrx/store';
-import { EffectsModule } from "@ngrx/effects";
-import { StoreRouterConnectingModule } from "@ngrx/router-store";
+import { appReducer } from './store/reducers/reducer';
+import { RecipesEffects } from './store/effects/effect';
+import { initialState } from './models/model';
 
 @NgModule({
   declarations: [
